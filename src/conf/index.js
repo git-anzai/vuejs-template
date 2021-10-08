@@ -1,3 +1,2 @@
-const config = require('./'+ process.env.HTTP_ENV+ '.conf');
+const config = require('./'+ process.env.env_config+ '.conf');
 module.exports = config;
-

@@ -1,13 +1,16 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <router-view/>
   </div>
 </template>
 
 <script>
+  import config from './conf'
 export default {
-  name: 'App'
+  name: 'App',
+  mounted() {
+    console.log(config, process.env)
+  }
 }
 </script>
 

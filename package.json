@@ -5,11 +5,13 @@
   "author": "tzld",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "cross-env env_config=dev webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "pre": "cross-env env_config=pre webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "prod": "cross-env env_config=prod webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "build": "cross-env NODE_ENV=production HTTP_ENV=prod node build/build.js",
-    "build:test": "cross-env NODE_ENV=production HTTP_ENV=test node build/build.js",
-    "build:pre": "cross-env NODE_ENV=production HTTP_ENV=pre node build/build.js"
+    "build": "cross-env NODE_ENV=production env_config=prod node build/build.js",
+    "build:dev": "cross-env NODE_ENV=production env_config=dev node build/build.js",
+    "build:pre": "cross-env NODE_ENV=production env_config=pre node build/build.js"
   },
   "dependencies": {
     "axios": "^0.19.2",
